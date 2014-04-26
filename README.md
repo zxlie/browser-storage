@@ -1,5 +1,6 @@
 基于浏览器的缓存策略（browser-storage）
 ==========================
+浏览器本地存储的一个解决方案，存储优先级依次为：HTML5-localStorage > IE-UserData > Cookie；并提供一套友好的API，对本地存储数据进行批量存储、读取、移除、清空等操作
 
 ### 简介
 ```javascript
