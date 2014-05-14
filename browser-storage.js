@@ -18,7 +18,7 @@
  * @author zhaoxianlie (xianliezhao@foxmail.com)
  */
 var BrowserStorage = window.BrowserStorage || {
-    version : '1.1'
+    version : '1.2'
 };
 
 /**
@@ -393,8 +393,8 @@ BrowserStorage.cookie = (function(){
         }
 
         document.cookie = config.key + "=" + config.value
-            + (config.path ? "; path=" + (config.path == './' ? '' : config.path) : "/")
-            + ( expires ? "; expires=" + expires.toGMTString() : "")
+            + (config.path ? "; path=" + (config.path == './' ? '' : config.path) : "")
+            + (expires ? "; expires=" + expires.toGMTString() : "")
             + (config.domain ? "; domain=" + config.domain : "")
             + (config.secure ? "; secure" : '');
     };
