@@ -18,7 +18,7 @@
  * @author zhaoxianlie (xianliezhao@foxmail.com)
  */
 var BrowserStorage = window.BrowserStorage || {
-    version : '1.2'
+    version : '1.3'
 };
 
 /**
@@ -385,7 +385,7 @@ BrowserStorage.cookie = (function(){
         if(!(expires instanceof Date)) {
             expires = new Date();
             if ('number' == typeof config.expires) {
-                expires.setTime(expires.getTime() + config.expires);
+                expires.setTime(expires.getTime() + config.expires * 1000);
             }else{
                 // 在没有设置过期时间的情况下，默认：30day
                 expires.setTime(expires.getTime() + 86400000*30);
@@ -393,7 +393,7 @@ BrowserStorage.cookie = (function(){
         }
 
         document.cookie = config.key + "=" + config.value
-            + (config.path ? "; path=" + (config.path == './' ? '' : config.path) : "")
+            + ("; path=" + (config.path ? (config.path == './' ? '' : config.path) : "/"))
             + (expires ? "; expires=" + expires.toGMTString() : "")
             + (config.domain ? "; domain=" + config.domain : "")
             + (config.secure ? "; secure" : '');
