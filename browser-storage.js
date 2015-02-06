@@ -51,7 +51,7 @@ BrowserStorage.localStorage = (function(){
                 expires.setTime(expires.getTime() + storageInfo.expires);
             }
 
-            window.localStorage.setItem(storageInfo.key + ".expires",expires);
+            window.localStorage.setItem(storageInfo.key + ".expires",expires || storageInfo.expires);
         }
     }
 
@@ -173,6 +173,7 @@ BrowserStorage.userData = (function(){
                     expires = new Date();
                     expires.setTime(expires.getTime() + storageInfo.expires);
                 }
+                expires = (expires || storageInfo.expires);
                 input.expires = expires.toUTCString();
             }
 
